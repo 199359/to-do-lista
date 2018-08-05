@@ -16,7 +16,7 @@ const Form = (props) => (
         <RaisedButton label="Dodaj" style={style} onClick={() => (
             props.addTask(props.newTaskName)
             )} />
-            {console.log(props)}
+            
     </div>
 )
 

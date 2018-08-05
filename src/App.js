@@ -11,11 +11,11 @@ class App extends Component {
     tasks: [
       {
           name: 'umyj gary',
-          key: 'u9h49uh98rh4'
+          uid: 'u9h49mkmkuh98rh41'
       },
       {
         name: 'umyj gary999',
-        key: 'u9h49uh98rh4'
+        uid: 'u9h49uhiuiuu9u998rh42'
     }
     ]
   }
@@ -26,10 +26,19 @@ class App extends Component {
   }
 
 addTask=(value)=>{
-  let newTask = {name: value, key: 'u9h49uh98rh4'}
+  let newTask = {name: value, uid: 'u9h49uh98rh4'}
   let newState = this.state.tasks.push(newTask)
   this.setState({newState})
-  
+}
+
+deleteTask =(taskUid)=>{
+  const newTasks = this.state.tasks.filter((el)=>{
+    console.log(el.uid)
+    console.log(taskUid)
+    return taskUid!==el.uid
+  })
+  this.setState({tasks: newTasks})
+
 }
 
   render() {
@@ -43,7 +52,8 @@ addTask=(value)=>{
         newTaskName={this.state.newTaskName}
         addTask={this.addTask}
         />
-        <List 
+        <List
+        deleteTask={this.deleteTask} 
           tasksList={this.state.tasks}
         />
       </div>

@@ -8,13 +8,15 @@ const taskDone = () => {
 
 
 
-const List = (props) => (
+const Task = (props) => (
     <div>
         <span style={this.style} onClick={() => {this.style.textDecoration='line-through'}}>
             {props.tasks.name}
         </span>
-        <button onClick={() => alert('Usuń')}>Usuń</button>
+        <button onClick={() => (
+            props.deleteTask()
+            )}>Usuń</button>
     </div>
 )
 
-export default List
+export default Task
