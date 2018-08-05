@@ -30,27 +30,22 @@ class App extends Component {
     const clickedTask = this.state.tasks.filter((el)=>{
       return el.uid === taskUid
     })
-    console.log(clickedTask)
     clickedTask.map((el)=>(el.isCompleted === true ? el.isCompleted = false : el.isCompleted = true))
-    console.log(clickedTask)
     const listOfTasks = this.state.tasks.filter((el)=>{
       return el.uid !== taskUid
     })
-    console.log(listOfTasks)
     listOfTasks.push(clickedTask[0])
-    console.log(listOfTasks)
   }
 
   addTask = (value) => {
-    let newTask = { name: value, uid: 'u9h49uh98rh4', isCompleted: false }
+    let newTask = { name: value, uid: Date.now(), isCompleted: false }
     let newState = this.state.tasks.push(newTask)
     this.setState({ newState })
+    console.log(newTask)
   }
 
   deleteTask = (taskUid) => {
     const newTasks = this.state.tasks.filter((el) => {
-      console.log(el.uid)
-      console.log(taskUid)
       return taskUid !== el.uid
     })
     this.setState({ tasks: newTasks })
