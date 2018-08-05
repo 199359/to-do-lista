@@ -2,7 +2,8 @@ import React from 'react'
 
 const List = (props) => (
     <div>
-        <p>aaa</p>
+        {console.log('task: ' + JSON.stringify(props))}
+        <p>{props.tasks.name}</p>
     </div>
 )
 

@@ -13,7 +13,7 @@ class App extends Component {
           key: 'u9h49uh98rh4'
       },
       {
-        name: 'wynies smieci',
+        name: 'umyj gary',
         key: 'u9h49uh98rh4'
     }
     ]
@@ -28,7 +28,7 @@ class App extends Component {
         <Form 
         />
         <List 
-
+          tasksList={this.state.tasks}
         />
       </div>
     );
