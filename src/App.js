@@ -4,18 +4,28 @@ import './App.css';
 import Form from './Components/Form'
 import List from './Components/List'
 import AppBar from 'material-ui/AppBar';
+import TextField from 'material-ui/TextField';
 
 class App extends Component {
   state = {
     newTaskName: 'nowy task',
     tasks: this.props.numberOnStart,
-    date: 'date'
+    date: 'date',
+    newFilter: ''
   }
-
-
 
   onNewTaskChange = (event, newValue) => {
     this.setState({ newTaskName: newValue })
+  }
+
+  onNewFilterChange = (event, newValue) => {
+    this.setState({newFilter: newValue})
+    console.log(newValue)
+    const resultOfFilter = this.state.tasks.filter((el)=>{
+      console.log(el.name)
+    return el.name===newValue 
+    })
+    console.log(resultOfFilter)
   }
 
   markTaskAsCompleted = (taskUid) => {
@@ -29,7 +39,7 @@ class App extends Component {
     listOfTasks.push(clickedTask[0])
     console.log(listOfTasks)
     this.saveOnLocalStorage()
-    this.setState({date: Date.now()})
+    this.setState({ date: Date.now() })
   }
 
   addTask = (value) => {
@@ -78,6 +88,11 @@ class App extends Component {
           deleteTask={this.deleteTask}
           tasksList={this.state.tasks}
         />
+        <TextField
+          hintText="Filtruj"
+          value={this.newFilter}
+          onChange={this.onNewFilterChange}
+        /><br />
       </div>
     );
   }
