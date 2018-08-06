@@ -5,6 +5,7 @@ import Form from './Components/Form'
 import List from './Components/List'
 import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
+import FilterMenu from './Components/FilterMenu'
 
 class App extends Component {
   state = {
@@ -19,11 +20,11 @@ class App extends Component {
   }
 
   onNewFilterChange = (event, newValue) => {
-    this.setState({newFilter: newValue})
+    this.setState({ newFilter: newValue })
     console.log(newValue)
-    const resultOfFilter = this.state.tasks.filter((el)=>{
+    const resultOfFilter = this.state.tasks.filter((el) => {
       console.log(el.name)
-    return el.name===newValue 
+      return el.name === newValue
     })
     console.log(resultOfFilter)
   }
@@ -71,6 +72,7 @@ class App extends Component {
     console.log(newState)
   }
 
+
   render() {
     this.saveOnLocalStorage()
     return (
@@ -93,6 +95,14 @@ class App extends Component {
           value={this.newFilter}
           onChange={this.onNewFilterChange}
         /><br />
+        <FilterMenu
+          tasksList={this.state.tasks}
+        />
+        <div >
+          <p>Lista filtrowanych elementów:</p>
+          <div class='filtred-elemets'>
+          </div>
+        </div>
       </div>
     );
   }
