@@ -5,8 +5,15 @@ import App from './App';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 ReactDOM.render(
-<MuiThemeProvider>
-<App />
-</MuiThemeProvider>,
- document.getElementById('root'));
+    <MuiThemeProvider>
+        <App
+        numberOnStart = {typeof(localStorage.toDoItems) !== 'string' ?  [{
+              name: 'Test',
+              uid: Date.now(),
+              isCompleted: false
+            }]
+          : JSON.parse(localStorage.toDoItems)}       
+        />
+    </MuiThemeProvider>,
+    document.getElementById('root'));
 

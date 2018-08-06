@@ -3,7 +3,7 @@ import React from 'react'
 
 const Task = (props) => (
     <div>
-        <span style={this.style} onClick={() => {
+        <span onClick={() => {
             props.markTaskAsCompleted()
         }}>
             {props.tasks.name}
