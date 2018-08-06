@@ -8,7 +8,8 @@ import AppBar from 'material-ui/AppBar';
 class App extends Component {
   state = {
     newTaskName: 'nowy task',
-    tasks: this.props.numberOnStart
+    tasks: this.props.numberOnStart,
+    date: 'date'
   }
 
 
@@ -28,6 +29,7 @@ class App extends Component {
     listOfTasks.push(clickedTask[0])
     console.log(listOfTasks)
     this.saveOnLocalStorage()
+    this.setState({date: Date.now()})
   }
 
   addTask = (value) => {
